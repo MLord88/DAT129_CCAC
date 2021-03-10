@@ -1,9 +1,7 @@
 import requests, json 
-from csv import DictReader
 
 url = "https://mlb-data.p.rapidapi.com/json/named.player_teams.bam"
 
-querystring = {"player_id":"'493316'","season":"'2019'"}
 
 headers = {
     'x-rapidapi-key': "3373986159mshacd89d2d6a3b458p1f883djsn0cf637deb7fd",
