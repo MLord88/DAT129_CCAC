@@ -2,11 +2,7 @@ import requests, json
 
 url = "https://mlb-data.p.rapidapi.com/json/named.player_teams.bam"
 
-
-headers = {
-    'x-rapidapi-key': "3373986159mshacd89d2d6a3b458p1f883djsn0cf637deb7fd",
-    'x-rapidapi-host': "mlb-data.p.rapidapi.com"
-    }
+headers = "placeholder" #will edit and enter file for API keyy\
 
 def player_by_id():
     
