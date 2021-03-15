@@ -1,8 +1,9 @@
 import requests, json 
 
 url = "https://mlb-data.p.rapidapi.com/json/named.player_teams.bam"
-
-headers = "placeholder" #will edit and enter file for API keyy\
+with open('Key_API.json') as f:
+    key = json.load(f)
+headers = key
 
 def player_by_id():
     
