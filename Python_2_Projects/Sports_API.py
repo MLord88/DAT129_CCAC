@@ -41,18 +41,19 @@ def main():
             payload = json.loads(resp.text)
             for y in payload:
                 payload = payload[y]['queryResults']['row']
-            for key, value in payload.items():
-                print(key, ':',value)
+            dict_player = {key:value for (key,value) in payload.items()}
+            print(f"Name: {dict_player['name_display_first_last']}\nAge: {dict_player['age']}\nDebut: {dict_player['pro_debut_date']}\nTeam: {dict_player['team_abbrev']}\nPosition: {dict_player['primary_position_txt']}")
 
     if x == 2:
         resp = requests.get(player_by_Name(), headers = headers)
-        print("Made request, response status: ", resp.status_code)
+        print("Made request, response status: \n", resp.status_code)
         if (int(resp.status_code)) == 200:
             payload = json.loads(resp.text)
             for y in payload:
                 payload = payload[y]['queryResults']['row']
-            for key, value in payload.items():
-                print(key, ':',value)
-                   
+            dict_player = {key:value for (key,value) in payload.items()}
+            print(f"Name: {dict_player['name_display_first_last']}\nAge: {dict_player['age']}\nDebut: {dict_player['pro_debut_date']}\nTeam: {dict_player['team_abbrev']}\nPosition: {dict_player['primary_position_txt']}")
+            
+       
 
 main()
