@@ -1,10 +1,13 @@
 import requests, json 
 
 url = "https://mlb-data.p.rapidapi.com/json/named.player_teams.bam"
-with open('Key_API.json') as f:
-    key = json.load(f)
-headers = key
-
+with open('MLB_Key.txt') as f:
+    API_Key = f.read()
+    API_Key= API_Key.strip()
+headers = {
+    'x-rapidapi-key': API_Key,
+    'x-rapidapi-host': "mlb-data.p.rapidapi.com"
+    }
 def player_by_id():
     
     player_id = input("Enter player ID to lookup a specific player.\n")
@@ -36,12 +39,20 @@ def main():
         print("Made request, response status: ", resp.status_code)
         if (int(resp.status_code)) == 200:
             payload = json.loads(resp.text)
-            print(payload) 
+            for y in payload:
+                payload = payload[y]['queryResults']['row']
+            for key, value in payload.items():
+                print(key, ':',value)
+
     if x == 2:
         resp = requests.get(player_by_Name(), headers = headers)
         print("Made request, response status: ", resp.status_code)
         if (int(resp.status_code)) == 200:
             payload = json.loads(resp.text)
-            print(payload)         
+            for y in payload:
+                payload = payload[y]['queryResults']['row']
+            for key, value in payload.items():
+                print(key, ':',value)
+                   
 
 main()
