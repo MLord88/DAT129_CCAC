@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 # Goal is to scrape pirates stats and form them into my own table for the current year
 def Batting():
     #scrape data and create readable data
-    url = 'https://www.espn.com/mlb/team/stats/_/name/pit/season/2021/seasontype/2'
+    url = 'https://www.espn.com/mlb/team/stats/_/name/nyy'
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
     # Creates elements from html that will be the base for the Data Frame
@@ -28,12 +28,12 @@ def Batting():
     print(f'\n\n\nExpanded Batting Stats - All Splits\n{result2}')
     
     #Sends data to 2 different CSV's for better munipulation
-    result.to_csv('Player_Batting_Pit.csv')
-    result2.to_csv('ExpandedPlayer_Batting_Pit.csv')
+    result.to_csv('Player_Batting_yank.csv')
+    result2.to_csv('ExpandedPlayer_Batting_yank.csv')
 
 def Pitching():
     #scrape data and create readable data
-    url = 'https://www.espn.com/mlb/team/stats/_/type/pitching/name/pit/season/2021/seasontype/2'
+    url = 'https://www.espn.com/mlb/team/stats/_/type/pitching/name/nyy'
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
     # Creates elements from html that will be the base for the Data Frame
@@ -53,8 +53,8 @@ def Pitching():
     print(f'\n\n\nBatting Against Stats - All Splits\n{result2}')
     
     #Sends data to 2 different CSV's for better munipulation
-    result.to_csv('Player_Pitching_Pit.csv')
-    result2.to_csv('Batting_Against_Pitching_Pit.csv')    
+    result.to_csv('Player_Pitching_yank.csv')
+    result2.to_csv('Batting_Against_Pitching_yank.csv')    
 
 def main():
     Batting()
