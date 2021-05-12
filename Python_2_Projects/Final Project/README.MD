@@ -1,7 +1,7 @@
 # Statistics from Major League Baseball Players
 
 ## Abstract
-When i started this project i set out to create a database with up to date player statistics from every team in the MLB.
+From the onset the goal of this project has been to create a database to be iterated over for MLB statistics. This script achieves that goal to degree although the database that results leaves some room for improvement. What results is a script that is able to iterate over the data and make queries into the database. I have also created some visualizations of the data through the use of matplotlib. Although the examples that are provided within the script are rather simple, it would be quite easy to create your own custom more comprehensive calculations within the script. 
 
 ## Purpose
 The purpose of this python script is to give the user access to a database of MLB player data. Along with this it gives some sample query and output types that anothe user could use when using this script if they desired. I could have done a million things with the data collected and this code could easily be adapted to do those things if the user desiered. 
