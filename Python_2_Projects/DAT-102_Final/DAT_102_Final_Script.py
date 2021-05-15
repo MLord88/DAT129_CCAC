@@ -111,15 +111,16 @@ def statistics():
         y = pd.read_sql_query('SELECT "Team Payroll", WPct FROM "%s" WHERE "Team Name" == "Pittsburgh Pirates"' % str(Years2[-1]), con)
         comp = comp.append(y)
         del Years2[-1]
-    comp = comp.reset_index(drop=True)
-    result = year.join(comp)
-    result.to_csv('Pirates_Data.csv')
+        comp = comp.reset_index(drop=True)
+        result = year.join(comp)
+        total = result.sum('Team Payroll')
+        print(total)
+        result.to_csv('Pirates_Data.csv')
     return result
     
 def main():
     data = statistics()
-    Payroll_graph(data)
-
+    
 
 if __name__ == "__main__":
     main()
